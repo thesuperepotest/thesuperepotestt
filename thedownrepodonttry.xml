@@ -18,7 +18,8 @@
 		<string>so don't even try adding it</string>
 	</dict>
 	<key>packages</key>
-	<array><dict>
+	<array>
+	<dict>
 	<key>bundleIdentifier</key>
 	<string>net.r4m0n.iphone.clu.zip</string>
 	<key>name</key>
@@ -6794,7 +6795,7 @@
 			</array>
 		</array>
 	</dict>
-<key>category</key><string>iPhysics</string><key>date</key><string>1204861610</string></dict>
+<key>category</key><string>iPhysics</string><key>date</key><string>1204861610</string>
 </dict>
     <dict>
       <key>version</key>
