@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+
+<dict>
+  <key>info</key>
+  <dict>
+    <key>name</key>
+    <string>Saurik's Coding Toolbox</string>
+
+    <key>maintainer</key>
+    <string>Jay Freeman (saurik)</string>
+
+    <key>contact</key>
+    <string>saurik@saurik.com</string>
+
+    <key>url</key>
+    <string>http://www.saurik.com/</string>
+
+    <key>category</key>
+    <string>Other Sources</string>
+
+    <key>description</key>
+    <string>Developer Tools &amp; Libraries</string>
+  </dict>
+
+  <key>packages</key>
+  <array>
+    <dict>
+      <key>version</key>
+      <string>1.1.2</string>
+
+      <key>bundleIdentifier</key>
+      <string>com.saurik.Cydia.Update</string>
+
+      <key>contact</key>
+      <string>saurik@saurik.com</string>
+
+      <key>description</key>
+      <string>Install if Cydia doesn't start, or to free disk space used by package cache. Runs apt-get update/clean.</string>
+
+      <key>hash</key>
+      <string>c9e448e143c921dbf7342fd1c06aa1bd</string>
+
+      <key>location</key>
+      <string>http://apptapp.saurik.com/com/saurik/God-1.zip</string>
+
+      <key>maintainer</key>
+      <string>Jay Freeman (saurik)</string>
+
+      <key>name</key>
+      <string>Cydia: Manual Refresh</string>
+
+      <key>scripts</key>
+      <dict>
+        <key>install</key>
+        <array>
+          <array>
+            <string>SetStatus</string>
+            <string>Installing God Mode...</string>
+          </array>
+
+          <array>
+            <string>CopyPath</string>
+            <string>usr/libexec/cydia_</string>
+            <string>/usr/libexec/cydia_</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Removing APT Cache Lists...</string>
+          </array>
+
+          <array>
+            <string>RemovePath</string>
+            <string>/var/cache/apt</string>
+            <string>/var/lib/apt/lists</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/usr/libexec/cydia_/godmode /bin/mkdir -p /var/lib/apt/lists/partial</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/usr/libexec/cydia_/godmode /bin/mkdir -p /var/cache/apt/archives/partial</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Repairing Status File...</string>
+          </array>
+
+          <array>
+            <string>ExecNoError</string>
+            <string>/usr/libexec/cydia_/godmode /bin/sed -i -e s@^/@\x20/@ /var/lib/dpkg/status</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Updating Package Database...</string>
+          </array>
+
+          <array>
+            <string>ExecNoError</string>
+            <string>/usr/libexec/cydia_/godmode /usr/bin/apt-get update</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>_Slowly_ Upgrading Telesphoreo...</string>
+          </array>
+
+          <array>
+            <string>ExecNoError</string>
+            <string>/usr/libexec/cydia_/godmode /usr/bin/apt-get dist-upgrade -y</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Removing God Mode...</string>
+          </array>
+
+          <array>
+            <string>RemovePath</string>
+            <string>/usr/libexec/cydia_</string>
+          </array>
+        </array>
+      </dict>
+
+      <key>size</key>
+      <string>3548</string>
+
+      <key>url</key>
+      <string>about:blank</string>
+
+      <key>category</key>
+      <string>System</string>
+
+      <key>date</key>
+      <string>1210490013</string>
+    </dict>
+
+    <dict>
+      <key>version</key>
+      <string>2.1</string>
+
+      <key>bundleIdentifier</key>
+      <string>com.natetrue.iphone.iphone_binkit</string>
+
+      <key>contact</key>
+      <string>saurik@saurik.com</string>
+
+      <key>description</key>
+      <string>Bypass Bad Prerequisites. _Only_ install this package if you are intending to install Packager instead of BSD Subsystem. This is needed as some packages refuse to install unless BSD Subsystem is installed.</string>
+
+      <key>hash</key>
+      <string>76cdb2bad9582d23c1f6f4d868218d6c</string>
+
+      <key>location</key>
+      <string>http://apptapp.saurik.com/com/saurik/Empty.zip</string>
+
+      <key>maintainer</key>
+      <string>Jay Freeman (saurik)</string>
+
+      <key>name</key>
+      <string>Fake BSD Subsystem</string>
+
+      <key>scripts</key>
+      <dict>
+        <key>install</key>
+        <array>
+          <array>
+            <string>Notice</string>
+            <string>This package doesn't do anything or contain anything: only install it if you are certain you don't need 'BSD Subsystem'. You may freely uninstall it, which will also have no effect.</string>
+          </array>
+        </array>
+
+        <key>uninstall</key>
+        <array>
+          <array>
+            <string>Notice</string>
+            <string>No harm, no foul. ;P</string>
+          </array>
+        </array>
+      </dict>
+
+      <key>size</key>
+      <string>22</string>
+
+      <key>url</key>
+      <string>about:blank</string>
+
+      <key>category</key>
+      <string>System</string>
+
+      <key>date</key>
+      <string>1210490013</string>
+    </dict>
+
+    <dict>
+      <key>version</key>
+      <string>1.0</string>
+
+      <key>bundleIdentifier</key>
+      <string>com.saurik.Cydia</string>
+
+      <key>contact</key>
+      <string>saurik@saurik.com</string>
+
+      <key>description</key>
+      <string>The Future of the iPhone
+
+Users Want It:
+
+ - Installer Replacement
+   o search package descriptions
+   o faster, background updates
+   o inter-package dependencies
+   o better More Info browser
+
+Power-Users Covet It:
+
+ - Working BSD Subsystem
+   o change your password safely
+   o colorized bash, ls, and vim
+   o multi-screen MobileTerminal
+
+Developers _Need_ It:
+
+ - Real Developer Tools
+   o Java (w/UIKit), PyObjC, Ruby
+   o class-dump, nm, and strings
+   o run gcc 4.2 _on the phone_
+
+</string>
+
+      <key>hash</key>
+      <string>3fa5b5cf00d883f4bf6519d2e82d5e70</string>
+
+      <key>location</key>
+      <string>http://apptapp.saurik.com/com/saurik/Packager-1.0.281-1.zip</string>
+
+      <key>maintainer</key>
+      <string>Jay Freeman (saurik)</string>
+
+      <key>name</key>
+      <string>Cydia Installer</string>
+
+      <key>scripts</key>
+      <dict>
+        <key>install</key>
+        <array>
+          <array>
+            <string>If</string>
+            <array>
+              <array>
+                <string>InstalledPackage</string>
+                <string>com.saurik.Packager</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>AbortOperation</string>
+                <string>This package is already installed under an older name. Thank you very much for helping with the initial testing process. You should be able to upgrade using Cydia.</string>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>If</string>
+            <array>
+              <array>
+                <string>FirmwareVersionIs</string>
+                <array>
+                  <string>1.0</string>
+                  <string>1.0.1</string>
+                  <string>1.0.2</string>
+                </array>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>AbortOperation</string>
+                <string>Firmware 1.0.x is not supported by Cydia. If you would like to donate an hour or so to debugging this (should be quite easy to make work), please contact the maintainer of this package.</string>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>If</string>
+            <array>
+              <array>
+                <string>InstalledPackage</string>
+                <string>com.saurik.Cydia</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>IfNot</string>
+                <array>
+                  <array>
+                    <string>Confirm</string>
+                    <string>Performing a "Reinstall" of Cydia Packager will reset its database of installed packages. It will not, however, actually uninstall (most) of them. Generally it will be safe to simply install these zombie packages again. Are you certain you wish to continue?</string>
+                    <string>Yes (Reinstall)</string>
+                    <string>No (Abort)</string>
+                  </array>
+                </array>
+
+                <array>
+                  <array>
+                    <string>AbortOperation</string>
+                    <string>Cancelled.</string>
+                  </array>
+                </array>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>Notice</string>
+            <string>Some steps during this installation are _very_ slow. Please do not panic if Installer seems to have gotten stuck on a single step for an undue period of time. Because of this, you will also need to be extra careful that your phone does not timeout during the installation and lock itself (closing Installer and messing up the installation). To avoid this situation, periodically touch your device's screen.</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Installing Bootstrap...</string>
+          </array>
+
+          <array>
+            <string>CopyPath</string>
+            <string>usr/libexec/cydia_</string>
+            <string>/usr/libexec/cydia_</string>
+          </array>
+
+          <array>
+            <string>MovePath</string>
+            <string>/usr/libexec/cydia_/libhistory.5.2.dylib</string>
+            <string>/usr/lib/libhistory.5.2.dylib</string>
+          </array>
+
+          <array>
+            <string>MovePath</string>
+            <string>/usr/libexec/cydia_/libintl.8.0.2.dylib</string>
+            <string>/usr/lib/libintl.8.0.2.dylib</string>
+          </array>
+
+          <array>
+            <string>MovePath</string>
+            <string>/usr/libexec/cydia_/libncurses.5.dylib</string>
+            <string>/usr/lib/libncurses.5.dylib</string>
+          </array>
+
+          <array>
+            <string>MovePath</string>
+            <string>/usr/libexec/cydia_/libreadline.5.2.dylib</string>
+            <string>/usr/lib/libreadline.5.2.dylib</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/usr/libexec/cydia_/symlink libintl.8.0.2.dylib /usr/lib/libintl.8.dylib</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Verifying Valid Filesystem...</string>
+          </array>
+
+          <array>
+            <string>IfNot</string>
+            <array>
+              <array>
+                <string>Exec</string>
+                <string>/usr/libexec/cydia_/godmode /usr/libexec/cydia_/bash /usr/libexec/cydia_/fstab.sh</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>If</string>
+                <array>
+                  <array>
+                    <string>Confirm</string>
+                    <string>Modifications needed to be made to your devices mount table. In order for this installation to safely continue you _must_ reboot. Shall I do this for you right now? Note that it may take a few moments for the reboot to actually occur. (After rebooting, simply begin the installation again. Do _not_ try again without first rebooting.)</string>
+                    <string>Yes (Reboot)</string>
+                    <string>No (Abort)</string>
+                  </array>
+                </array>
+
+                <array>
+                  <array>
+                    <string>Exec</string>
+                    <string>/usr/libexec/cydia_/godmode /usr/libexec/cydia_/reboot</string>
+                  </array>
+                </array>
+              </array>
+
+              <array>
+                <string>AbortOperation</string>
+                <string>System mount table modified, reboot required.</string>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>_Slowly_ Freeing Disk Space...</string>
+          </array>
+
+          <array>
+            <string>IfNot</string>
+            <array>
+              <array>
+                <string>Exec</string>
+                <string>/usr/libexec/cydia_/godmode /usr/libexec/cydia_/bash /usr/libexec/cydia_/space.sh</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>AbortOperation</string>
+                <string>At least 32MB of free space is required to install this package. Note that BSD Subsystem has already been uninstalled, so you may need to Reinstall it in order to free space.</string>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Uninstalling BSD Subsystem...</string>
+          </array>
+
+          <array>
+            <string>RemovePath</string>
+            <string>/bin/[</string>
+            <string>/bin/bash</string>
+            <string>/bin/cat</string>
+            <string>/bin/chmod</string>
+            <string>/bin/cp</string>
+            <string>/bin/csh</string>
+            <string>/bin/date</string>
+            <string>/bin/dd</string>
+            <string>/bin/df</string>
+            <string>/bin/domainname</string>
+            <string>/bin/.DS_Store</string>
+            <string>/bin/echo</string>
+            <string>/bin/ed</string>
+            <string>/bin/expr</string>
+            <string>/bin/getty</string>
+            <string>/bin/hostname</string>
+            <string>/bin/kill</string>
+            <string>/bin/link</string>
+            <string>/bin/ln</string>
+            <string>/bin/ls</string>
+            <string>/bin/mkdir</string>
+            <string>/bin/mv</string>
+            <string>/bin/pax</string>
+            <string>/bin/printf</string>
+            <string>/bin/ps</string>
+            <string>/bin/pwd</string>
+            <string>/bin/rm</string>
+            <string>/bin/rmdir</string>
+            <string>/bin/sh</string>
+            <string>/bin/sleep</string>
+            <string>/bin/stty</string>
+            <string>/bin/sync</string>
+            <string>/bin/tcsh</string>
+            <string>/bin/test</string>
+            <string>/bin/true</string>
+            <string>/bin/unlink</string>
+            <string>/bin/zsh</string>
+            <string>/etc/csh.cshrc</string>
+            <string>/etc/.DS_Store</string>
+            <string>/etc/profile</string>
+            <string>/etc/termcap</string>
+            <string>/sbin/.DS_Store</string>
+            <string>/sbin/ifconfig</string>
+            <string>/sbin/kextunload</string>
+            <string>/sbin/md5</string>
+            <string>/sbin/mknod</string>
+            <string>/sbin/ping</string>
+            <string>/sbin/reboot</string>
+            <string>/sbin/route</string>
+            <string>/System/Library/LaunchDaemons/com.apple.cron.plist</string>
+            <string>/usr/bin/alias</string>
+            <string>/usr/bin/apply</string>
+            <string>/usr/bin/awk</string>
+            <string>/usr/bin/banner</string>
+            <string>/usr/bin/basename</string>
+            <string>/usr/bin/bzip2</string>
+            <string>/usr/bin/cap_mkdb</string>
+            <string>/usr/bin/chflags</string>
+            <string>/usr/bin/chgrp</string>
+            <string>/usr/bin/chown</string>
+            <string>/usr/bin/cksum</string>
+            <string>/usr/bin/col</string>
+            <string>/usr/bin/colrm</string>
+            <string>/usr/bin/column</string>
+            <string>/usr/bin/comm</string>
+            <string>/usr/bin/compress</string>
+            <string>/usr/bin/crontab</string>
+            <string>/usr/bin/csplit</string>
+            <string>/usr/bin/curl</string>
+            <string>/usr/bin/cut</string>
+            <string>/usr/bin/dirname</string>
+            <string>/usr/bin/ditto</string>
+            <string>/usr/bin/.DS_Store</string>
+            <string>/usr/bin/du</string>
+            <string>/usr/bin/env</string>
+            <string>/usr/bin/expand</string>
+            <string>/usr/bin/false</string>
+            <string>/usr/bin/find</string>
+            <string>/usr/bin/finger</string>
+            <string>/usr/bin/fmt</string>
+            <string>/usr/bin/fold</string>
+            <string>/usr/bin/funzip</string>
+            <string>/usr/bin/getopt</string>
+            <string>/usr/bin/grep</string>
+            <string>/usr/bin/groups</string>
+            <string>/usr/bin/gunzip</string>
+            <string>/usr/bin/gzexe</string>
+            <string>/usr/bin/gzip</string>
+            <string>/usr/bin/head</string>
+            <string>/usr/bin/hexdump</string>
+            <string>/usr/bin/hostinfo</string>
+            <string>/usr/bin/id</string>
+            <string>/usr/bin/install</string>
+            <string>/usr/bin/ipcrm</string>
+            <string>/usr/bin/join</string>
+            <string>/usr/bin/jot</string>
+            <string>/usr/bin/killall</string>
+            <string>/usr/bin/lam</string>
+            <string>/usr/bin/last</string>
+            <string>/usr/bin/lastcomm</string>
+            <string>/usr/bin/less</string>
+            <string>/usr/bin/libgzip.a</string>
+            <string>/usr/bin/locate</string>
+            <string>/usr/bin/login</string>
+            <string>/usr/bin/logname</string>
+            <string>/usr/bin/look</string>
+            <string>/usr/bin/lsvfs</string>
+            <string>/usr/bin/makekey</string>
+            <string>/usr/bin/md</string>
+            <string>/usr/bin/mesg</string>
+            <string>/usr/bin/minicom</string>
+            <string>/usr/bin/mkfifo</string>
+            <string>/usr/bin/mktemp</string>
+            <string>/usr/bin/more</string>
+            <string>/usr/bin/nano</string>
+            <string>/usr/bin/nc</string>
+            <string>/usr/bin/nice</string>
+            <string>/usr/bin/nl</string>
+            <string>/usr/bin/nohup</string>
+            <string>/usr/bin/od</string>
+            <string>/usr/bin/passwd</string>
+            <string>/usr/bin/paste</string>
+            <string>/usr/bin/pathchk</string>
+            <string>/usr/bin/pico</string>
+            <string>/usr/bin/pr</string>
+            <string>/usr/bin/printenv</string>
+            <string>/usr/bin/printf</string>
+            <string>/usr/bin/readlink</string>
+            <string>/usr/bin/renice</string>
+            <string>/usr/bin/rev</string>
+            <string>/usr/bin/rs</string>
+            <string>/usr/bin/rsync</string>
+            <string>/usr/bin/sar</string>
+            <string>/usr/bin/screen</string>
+            <string>/usr/bin/script</string>
+            <string>/usr/bin/sed</string>
+            <string>/usr/bin/shlock</string>
+            <string>/usr/bin/snap</string>
+            <string>/usr/bin/sort</string>
+            <string>/usr/bin/split</string>
+            <string>/usr/bin/srelay</string>
+            <string>/usr/bin/stat</string>
+            <string>/usr/bin/su</string>
+            <string>/usr/bin/sum</string>
+            <string>/usr/bin/tabs</string>
+            <string>/usr/bin/tail</string>
+            <string>/usr/bin/tar</string>
+            <string>/usr/bin/tcopy</string>
+            <string>/usr/bin/tee</string>
+            <string>/usr/bin/telnet</string>
+            <string>/usr/bin/tftp</string>
+            <string>/usr/bin/time</string>
+            <string>/usr/bin/top</string>
+            <string>/usr/bin/touch</string>
+            <string>/usr/bin/tr</string>
+            <string>/usr/bin/true</string>
+            <string>/usr/bin/tsort</string>
+            <string>/usr/bin/tty</string>
+            <string>/usr/bin/ul</string>
+            <string>/usr/bin/uname</string>
+            <string>/usr/bin/unexpand</string>
+            <string>/usr/bin/uniq</string>
+            <string>/usr/bin/unvis</string>
+            <string>/usr/bin/unzip</string>
+            <string>/usr/bin/unzipsfx</string>
+            <string>/usr/bin/uptime</string>
+            <string>/usr/bin/users</string>
+            <string>/usr/bin/vi</string>
+            <string>/usr/bin/vim</string>
+            <string>/usr/bin/vis</string>
+            <string>/usr/bin/wall</string>
+            <string>/usr/bin/wc</string>
+            <string>/usr/bin/whereis</string>
+            <string>/usr/bin/which</string>
+            <string>/usr/bin/who</string>
+            <string>/usr/bin/whoami</string>
+            <string>/usr/bin/whois</string>
+            <string>/usr/bin/xargs</string>
+            <string>/usr/bin/yes</string>
+            <string>/usr/bin/zcat</string>
+            <string>/usr/bin/zcmp</string>
+            <string>/usr/bin/zdiff</string>
+            <string>/usr/bin/zegrep</string>
+            <string>/usr/bin/zfgrep</string>
+            <string>/usr/bin/zforce</string>
+            <string>/usr/bin/zgrep</string>
+            <string>/usr/bin/zless</string>
+            <string>/usr/bin/zmore</string>
+            <string>/usr/bin/znew</string>
+            <string>/usr/bin/zprint</string>
+            <string>/usr/.DS_Store</string>
+            <string>/usr/lib/.DS_Store</string>
+            <string>/usr/lib/sa</string>
+            <string>/usr/sbin/ac</string>
+            <string>/usr/sbin/arp</string>
+            <string>/usr/sbin/chown</string>
+            <string>/usr/sbin/chroot</string>
+            <string>/usr/sbin/cron</string>
+            <string>/usr/sbin/.DS_Store</string>
+            <string>/usr/sbin/fdisk</string>
+            <string>/usr/sbin/ifconfig</string>
+            <string>/usr/sbin/ioreg</string>
+            <string>/usr/sbin/iostat</string>
+            <string>/usr/sbin/kextstat</string>
+            <string>/usr/sbin/kextunload</string>
+            <string>/usr/sbin/makedbm</string>
+            <string>/usr/sbin/md5</string>
+            <string>/usr/sbin/mkfile</string>
+            <string>/usr/sbin/mknod</string>
+            <string>/usr/sbin/mtree</string>
+            <string>/usr/sbin/netstat</string>
+            <string>/usr/sbin/ping</string>
+            <string>/usr/sbin/pt_chown</string>
+            <string>/usr/sbin/reboot</string>
+            <string>/usr/sbin/rmt</string>
+            <string>/usr/sbin/route</string>
+            <string>/usr/sbin/screen</string>
+            <string>/usr/sbin/sysctl</string>
+            <string>/usr/sbin/tcpdump</string>
+            <string>/usr/sbin/traceroute</string>
+            <string>/usr/sbin/vipw</string>
+            <string>/usr/sbin/vmstat</string>
+            <string>/usr/sbin/zdump</string>
+            <string>/usr/sbin/zic</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/usr/libexec/cydia_/godmode /usr/libexec/cydia_/rm -rf /usr/share/terminfo</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>_Slowly_ Extracting Telesphoreo...</string>
+          </array>
+
+          <array>
+            <string>CopyPath</string>
+            <string>.</string>
+            <string>/</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Overlaying Symbolic Links...</string>
+          </array>
+
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink grep /bin/egrep</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink grep /bin/fgrep</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink bash /bin/sh</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink nano /usr/bin/rnano</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink tset /usr/bin/reset</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink tic /usr/bin/infotocap</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink tic /usr/bin/captoinfo</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink gawk /usr/bin/awk</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcre.0.0.1.dylib /usr/lib/libpcre.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libgettextlib-0.17.dylib /usr/lib/libgettextlib.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcre.0.0.1.dylib /usr/lib/libpcre.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libapt-inst.dylib.1.1.0 /usr/lib/libapt-inst.dylib.1.1</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libhistory.5.2.dylib /usr/lib/libhistory.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libapt-inst.dylib.1.1.0 /usr/lib/libapt-inst.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libgettextpo.0.4.0.dylib /usr/lib/libgettextpo.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libmenu.5.dylib /usr/lib/libmenu.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcrecpp.0.0.0.dylib /usr/lib/libpcrecpp.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libgettextsrc-0.17.dylib /usr/lib/libgettextsrc.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libgettextpo.0.4.0.dylib /usr/lib/libgettextpo.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libreadline.5.2.dylib /usr/lib/libreadline.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libutil1.0.dylib /usr/lib/libutil.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libncurses.5.dylib /usr/lib/libcurses.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libreadline.5.2.dylib /usr/lib/libreadline.5.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libapt-pkg.dylib.3.11.0 /usr/lib/libapt-pkg.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink ../share/terminfo /usr/lib/terminfo</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libasprintf.0.0.0.dylib /usr/lib/libasprintf.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libintl.8.0.2.dylib /usr/lib/libintl.8.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libdb-4.6.dylib /usr/lib/libdb-4.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcreposix.0.0.0.dylib /usr/lib/libpcreposix.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcrecpp.0.0.0.dylib /usr/lib/libpcrecpp.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libncurses.5.dylib /usr/lib/libncurses.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libvi.0.0.0.dylib /usr/lib/libvi.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpanel.5.dylib /usr/lib/libpanel.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink gzip /usr/lib/apt/methods/bzip2</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink rsh /usr/lib/apt/methods/ssh</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libapt-pkg.dylib.3.11.0 /usr/lib/libapt-pkg.dylib.3.11</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libasprintf.0.0.0.dylib /usr/lib/libasprintf.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libhistory.5.2.dylib /usr/lib/libhistory.5.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libform.5.dylib /usr/lib/libform.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libpcreposix.0.0.0.dylib /usr/lib/libpcreposix.0.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libdb-4.6.dylib /usr/lib/libdb.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libvi.0.0.0.dylib /usr/lib/libvi.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink libintl.8.0.2.dylib /usr/lib/libintl.dylib</string></array>
+          <array><string>Exec</string><string>/usr/libexec/cydia_/symlink curses.h /usr/include/ncurses.h</string></array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Setting Firmware Version...</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/usr/libexec/cydia_/godmode /usr/libexec/cydia/firmware.sh</string>
+          </array>
+
+          <array>
+            <string>SetStatus</string>
+            <string>Clearing Bootstrap Files...</string>
+          </array>
+
+          <array>
+            <string>RemovePath</string>
+            <string>/usr/libexec/cydia_</string>
+          </array>
+
+          <!--array>
+            <string>SetStatus</string>
+            <string>Updating Package Database...</string>
+          </array>
+
+          <array>
+            <string>Exec</string>
+            <string>/Applications/Cydia.app/Cydia - -bootstrap</string>
+          </array-->
+
+          <array>
+            <string>If</string>
+            <array>
+              <array>
+                <string>InstalledPackage</string>
+                <string>com.natetrue.iphone.iphone_binkit</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>Notice</string>
+                <string>WARNING: BSD Subsystem attempts to install broken versions of the same tools you might install via Packager. Do _not_ upgrade BSD Subsystem now that you have installed Packager. There is no need to, as you can install anything BSD Subsystem provides using Packager. Instead, always upgrade to the package "_Fake_ BSD Subsystem", to trick other packages into thinking it is installed.</string>
+              </array>
+            </array>
+          </array>
+
+          <array>
+            <string>IfNot</string>
+            <array>
+              <array>
+                <string>InstalledPackage</string>
+                <string>com.natetrue.iphone.iphone_binkit</string>
+              </array>
+            </array>
+
+            <array>
+              <array>
+                <string>Notice</string>
+                <string>WARNING: BSD Subsystem attempts to install broken versions of the same tools you might install via Packager. Do _not_ install BSD Subsystem now that you have installed Packager. There is no need to, as you can install anything BSD Subsystem provides using Packager. Instead, install the package "_Fake_ BSD Subsystem", to trick other packages into thinking it is installed.</string>
+              </array>
+            </array>
+          </array>
+        </array>
+      </dict>
+
+      <key>size</key>
+      <string>14164726</string>
+
+      <key>url</key>
+      <string>http://cydia.saurik.com/apptapp/</string>
+
+      <key>category</key>
+      <string>System</string>
+
+      <key>date</key>
+      <string>1210490013</string>
+    </dict>
+  </array>
+</dict>
+
+</plist>
